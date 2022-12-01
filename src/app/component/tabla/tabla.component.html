@@ -1,0 +1,67 @@
+<div class="row tituloscentrados">
+  <h2>Personas</h2>
+  <div class="col-md-9">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Variable</th>
+            <th scope="col">Pipes</th>
+            <th scope="col">Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td>upperCase</td>
+            <td>{{nombre | uppercase}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td>lowercase</td>
+            <td>{{nombre | lowercase}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td>slice</td>
+            <td>{{nombre | slice:2}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{valorPi}}</th>
+            <td>number</td>
+            <td>{{valorPi | number:"1.0-2"}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{valorPi}}</th>
+            <td>number</td>
+            <td>{{valorPi | number:"2.0-3"}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{porcentaje}}</th>
+            <td>porcentaje</td>
+            <td>{{porcentaje | percent}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{salario}}</th>
+            <td>currency</td>
+            <td>{{salario | currency}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{salario}}</th>
+            <td>currency</td>
+            <td>{{salario | currency : 'EUR':true}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{fecha}}</th>
+            <td>fecha</td>
+            <td>{{fecha | date:"MMM-dd-yyyy"}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{fecha}}</th>
+            <td>fecha</td>
+            <td>{{fecha}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div> 
+  
