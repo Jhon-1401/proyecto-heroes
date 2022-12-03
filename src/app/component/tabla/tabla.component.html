@@ -62,13 +62,50 @@
           </tr>
           <tr>
             <th scope="row">{{nombre}}</th>
-            <td>fecha</td>
+            <td>nombre</td>
             <td>{{nombre|mayuscula}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td>capitalizar</td>
+            <td>{{nombre|capitalizar}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td>Boton</td>
+            <td>
+              <button class="btn btn-info" (click)="generarAlerta()">Alerta</button>
+
+              <select name="selector" class="form.control" (change)="generarAlerta()">
+                <option>Opcion 1</option>
+                <option>Opcion 2</option>
+                <option>Opcion 3</option>
+              </select>            
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">{{nombre}}</th>
+            <td><button class="btn btn-info" (click)="oculataMostrar()">Mostrar/Ocultar</button></td>
+            <td>{{nombre|oculatarMostra:ocultar}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Asyn Pipe</th>
+            <td>Promesa</td>
+            <td>{{valorPromesa|async}}</td>
           </tr>
         </tbody>
       </table>
   </div>
 </div> 
+
+<!--
+  Ejercicio 2
+  Crear pipe que se llamará activar contraseña 
+  variable = 'Nombre'
+
+  Activo = 'Mostrar Nombre'
+  Desactivo = '**********'
+-->
 
 <!--Crea un pipe llamado capitalizar, va a recibir un nombre y va a tener un parametro number -->
 

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './compartir/navbar/navbar.component';
 import { TablaComponent } from './component/tabla/tabla.component';
 import { MayusculaPipe } from './pipe/mayuscula.pipe';
+import { EjercicioPipeComponent } from './componet/ejercicio-pipe/ejercicio-pipe.component';
+import { CapitalizarPipe } from './pipe/capitalizar.pipe';
+import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
 
 @NgModule({
   //Declarados todos los componentes
@@ -13,7 +16,10 @@ import { MayusculaPipe } from './pipe/mayuscula.pipe';
     AppComponent,
     NavbarComponent,
     TablaComponent,
-    MayusculaPipe
+    MayusculaPipe,
+    EjercicioPipeComponent,
+    CapitalizarPipe,
+    OculatarMostraPipe,
   ],
   imports: [
     //Todas la librerias que utilicemos  
