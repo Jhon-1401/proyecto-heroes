@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './compartir/navbar/navbar.component';
 import { TablaComponent } from './component/tabla/tabla.component';
+import { MayusculaPipe } from './pipe/mayuscula.pipe';
 
 @NgModule({
   //Declarados todos los componentes
   declarations: [
     AppComponent,
     NavbarComponent,
-    TablaComponent
+    TablaComponent,
+    MayusculaPipe
   ],
   imports: [
     //Todas la librerias que utilicemos  
