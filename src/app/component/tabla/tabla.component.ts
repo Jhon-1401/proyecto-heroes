@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TablaComponent {
 
-  nombre:string="david toloza";
+  nombre:string="JHON david GuEvArA tOlOzA";
   valorPi:number=Math.PI;
   porcentaje:number=0.236;
   salario:number=1234.5;
