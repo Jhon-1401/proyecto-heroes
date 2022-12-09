@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { subscribeOn } from 'rxjs';
+import { IPersona } from 'src/app/interfaces/persona';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -9,8 +10,13 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent {
 
+  persona:IPersona= {} as IPersona;  
+
   constructor(private _serviceLogin : LoginService){
-    //_serviceLogin.getPersona$().subscribe
+    _serviceLogin.getPersona$().subscribe((data:IPersona) =>{
+      this.persona=data;
+      
+    });
   }
 
 }
