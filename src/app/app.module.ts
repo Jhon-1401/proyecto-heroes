@@ -1,14 +1,19 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './compartir/navbar/navbar.component';
-import { TablaComponent } from './component/tabla/tabla.component';
+import { TablaComponent } from './components/tabla/tabla.component';
+
+import localEs from "@angular/common/locales/es"
 import { MayusculaPipe } from './pipe/mayuscula.pipe';
-import { EjercicioPipeComponent } from './componet/ejercicio-pipe/ejercicio-pipe.component';
 import { CapitalizarPipe } from './pipe/capitalizar.pipe';
 import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
+import { LoginComponent } from './components/login/login.component';
+import { RouterModule } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localEs,'es')
 
 @NgModule({
   //Declarados todos los componentes
@@ -17,17 +22,20 @@ import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
     NavbarComponent,
     TablaComponent,
     MayusculaPipe,
-    EjercicioPipeComponent,
     CapitalizarPipe,
     OculatarMostraPipe,
+    LoginComponent,
   ],
   imports: [
     //Todas la librerias que utilicemos  
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule 
   ],
   //Servicios-relacionados con el backend 
-  providers: [],
+  providers: [
+    
+  ],
   //Cual es el componente principal
   bootstrap: [AppComponent]
 })
