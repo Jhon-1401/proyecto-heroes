@@ -13,6 +13,9 @@ import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
+import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
+import { FormularioReactivosComponent } from './components/formularios/formulario-reactivos/formulario-reactivos.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localEs,'es')
 
 @NgModule({
@@ -25,12 +28,17 @@ registerLocaleData(localEs,'es')
     CapitalizarPipe,
     OculatarMostraPipe,
     LoginComponent,
+    FormularioNgmodelComponent,
+    FormularioReactivosComponent,
   ],
   imports: [
     //Todas la librerias que utilicemos  
     BrowserModule,
     AppRoutingModule,
-    RouterModule 
+    RouterModule,
+    FormsModule ,
+    ReactiveFormsModule
+    
   ],
   //Servicios-relacionados con el backend 
   providers: [

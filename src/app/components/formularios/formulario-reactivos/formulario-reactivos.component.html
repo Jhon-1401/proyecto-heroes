@@ -1,0 +1,68 @@
+<h4>Formulario Reactivos</h4>
+<hr />
+<form [formGroup]="formGroup" (ngSubmit)="guardar()">
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="nombre"
+        formControlName="nombre"
+        placeholder="nombre"
+      />
+      <div  *ngIf="nombre?.errors != null && nombre?.touched">
+        <small *ngIf="nombre?.errors?.['required']" class="text-danger">
+          El nombre es requerido !
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        name="apellido"
+        formControlName="apellido"
+        placeholder="Apellido"
+      />
+      <div *ngIf="apellido?.errors != null && apellido?.touched">
+        <small *ngIf="apellido?.errors?.['required']">
+          El apellido es requerido
+        </small>
+        <small *ngIf="apellido?.errors?.['minlength']">
+          El apellido debe contener minimo 5 letras
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Correo</label>
+      <input
+        type="email"
+        class="form-control"
+        name="correo"
+        formControlName="correo"
+        placeholder="Escriba su correo"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        name="contrasena"
+        formControlName="contrasena"
+        placeholder="Escriba su contraseña"
+      />
+      <div *ngIf="contrasena?.errors != null && contrasena?.touched">
+        <small *ngIf="contrasena?.errors?.['pesos']">
+          {{ contrasena?.errors?.['pesos'] }}
+        </small>
+        <small *ngIf="contrasena?.errors?.['number']">
+          {{ contrasena?.errors?.['number'] }}
+        </small>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="">Guardar</button>
+  </form>
+  
