@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import{FormGroup,FormBuilder, AbstractControl, Validators} from '@angular/forms' 
+import{FormGroup,FormBuilder, AbstractControl, Validators} from '@angular/forms' ;
+import{IRestContries}from 'src/app/interfaces/rest-countries.interface';
+import { PaisService } from 'src/app/services/pais.service';
 
 
 @Component({
@@ -10,14 +12,25 @@ import{FormGroup,FormBuilder, AbstractControl, Validators} from '@angular/forms'
 export class FormularioReactivosComponent implements OnInit,OnDestroy {
 
   formGroup: FormGroup = new FormGroup({});
+  paises:IRestContries[] | null = [];
 
-  constructor(private formBuilder:FormBuilder){
-
+  constructor(
+    private formBuilder:FormBuilder,
+    private  _servicePais:PaisService
+    ){
+    
   }
 
   ngOnInit():void{
     console.log('componente init')
     this.buildForm();
+    this.getPaises();
+  }
+
+  getPaises(){
+    this._servicePais.getPaises().subscribe((data:IRestContries[] | null) =>{
+      this.paises = data ;
+    });
   }
 
   ngOnDestroy():void{

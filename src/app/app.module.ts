@@ -1,21 +1,25 @@
+import { registerLocaleData } from '@angular/common';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import localEs from "@angular/common/locales/es"
+import { RouterModule } from '@angular/router';
 
+//archivo rutas
 import { AppRoutingModule } from './app-routing.module';
+
+//componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './compartir/navbar/navbar.component';
 import { TablaComponent } from './components/tabla/tabla.component';
+import { LoginComponent } from './components/login/login.component';
 
-import localEs from "@angular/common/locales/es"
+//pipes
 import { MayusculaPipe } from './pipe/mayuscula.pipe';
 import { CapitalizarPipe } from './pipe/capitalizar.pipe';
 import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
-import { LoginComponent } from './components/login/login.component';
-import { RouterModule } from '@angular/router';
-import { registerLocaleData } from '@angular/common';
-import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
-import { FormularioReactivosComponent } from './components/formularios/formulario-reactivos/formulario-reactivos.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HeroesComponent } from './components/heroes/heroes.component';
+
+
 registerLocaleData(localEs,'es')
 
 @NgModule({
@@ -28,21 +32,22 @@ registerLocaleData(localEs,'es')
     CapitalizarPipe,
     OculatarMostraPipe,
     LoginComponent,
-    FormularioNgmodelComponent,
-    FormularioReactivosComponent,
+    HeroesComponent,
+   
   ],
   imports: [
     //Todas la librerias que utilicemos  
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
-    FormsModule ,
-    ReactiveFormsModule
+    RouterModule
     
   ],
   //Servicios-relacionados con el backend 
   providers: [
-    
+    {
+      provide: LOCALE_ID,
+      useValue: 'es'
+    }
   ],
   //Cual es el componente principal
   bootstrap: [AppComponent]

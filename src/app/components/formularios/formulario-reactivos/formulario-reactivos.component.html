@@ -35,6 +35,15 @@
       </div>
     </div>
     <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Paises</label>
+      <select class="form-control" formControlName="paises">
+        <option value="-1">Seleccione...</option>
+        <option [value]="pais.name" *ngFor="let pais of paises">
+          {{pais.name}}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
       <label for="formGroupExampleInput2" class="form-label">Correo</label>
       <input
         type="email"
