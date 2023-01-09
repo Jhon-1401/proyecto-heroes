@@ -3,6 +3,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import localEs from "@angular/common/locales/es"
 import { RouterModule } from '@angular/router';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 //archivo rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { MayusculaPipe } from './pipe/mayuscula.pipe';
 import { CapitalizarPipe } from './pipe/capitalizar.pipe';
 import { OculatarMostraPipe } from './pipe/oculatar-mostra.pipe';
-import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroesComponent } from './components/actividadheroes/heroes/heroes.component';
+import { MostrarImagenPipe } from './pipe/mostrar-imagen.pipe';
 
 
 registerLocaleData(localEs,'es')
@@ -33,13 +35,16 @@ registerLocaleData(localEs,'es')
     OculatarMostraPipe,
     LoginComponent,
     HeroesComponent,
+    MostrarImagenPipe,
+    
    
   ],
   imports: [
     //Todas la librerias que utilicemos  
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
     
   ],
   //Servicios-relacionados con el backend 

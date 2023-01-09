@@ -1,0 +1,79 @@
+<div>
+    <h4>Formulario Heroes</h4>
+
+    <form [formGroup]="formGroup" (ngSubmit)="guardar()">
+
+        <div class="row g-2">
+            <div class="col-md">
+                <label class="form-label">*Nombre</label>
+                <input style="text-transform:capitalize" placeholder="Nombre" class="form-control" name="nombre"  formControlName="nombre"
+                />
+                <div *ngIf="nombre?.errors != null && nombre?.touched">
+                    <small *ngIf="nombre?.errors?.['required']" class="text-danger">
+                        <b>  El nombre es requerido </b>
+                    </small>
+                    <small *ngIf="nombre?.errors?.['minlength']" class="text-danger">
+                       <b> El nombre debe contar con al menos 3 caracteres </b>
+                    </small>
+                  </div>
+            </div>
+            <div class="col-md">
+                <label  class="form-label">*Descripción</label>
+                <input placeholder="*Descripción" class="form-control" name="descripcion" formControlName="descripcion"/>
+                <div *ngIf="descripcion?.errors != null && descripcion?.touched">
+                    <small *ngIf="descripcion?.errors?.['required']" class="text-danger">
+                       <b> Es necesario agregar una descripción</b>
+                    </small>
+                    <small *ngIf="descripcion?.errors?.['minlength']" class="text-danger">
+                       <b> La descripción debe contar con al menos 10 caracteres</b>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row g-2">    
+            <div class="col-md">
+                <label  class="form-label">*Poder</label>
+                <input style="text-transform:capitalize" placeholder="Dime su poder " class="form-control" name="poder" formControlName="poder">
+                <div *ngIf="poder?.errors != null && poder?.touched">
+                    <small *ngIf="poder?.errors?.['required']" class="text-danger">
+                        <b>Es necesario agregar un poder a tu super heroe</b>
+                    </small>
+                    <small *ngIf="poder?.errors?.['minlength']" class="text-danger">
+                       <b> El nombre del poder debe contener al menos 3 caracteres</b>
+                    </small>
+                </div>
+            </div>
+            <div class="col-md">
+                <label class="form-label">*Casa</label>
+                <select class="form-select" formControlName="casa" name="casa">
+                    <option value="-1">Selecciona la casa</option>
+                    <option value="dc">Dc</option>
+                    <option value="marvel">Marvel</option>
+
+                </select>
+                <div *ngIf="casa?.value == -1 && casa?.touched">
+                    <small class="text-danger">
+                        <b>Es necesario agregar una casa a tu super heroe</b>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin-top: 10px; margin-bottom: 10px;">
+            <img class="rounded float-end" style=" padding: 10px;" id="imgFoto"  [src]="previsualizacion">
+            <div class="card-body">
+                <h5 class="card-title">*Imagen del Heroe</h5>
+                <p class="card-text"></p>
+                <input  class="form-control " type="file" accept="image/*" formControlName="image" id="foto" (change)="cargaImagen($event)">
+                <div *ngIf="image?.errors?.['required'] != null && image?.touched">
+                    <small *ngIf="image?.errors?.['required']" class="text-danger">
+                      <b>  Es necesario agregar una imagen </b> 
+                    </small>
+                </div>
+            </div>
+            
+        </div>
+            <!--[disabled]="formGroup.invalid"-->
+            <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid" >Submit</button>
+    </form>
+</div>

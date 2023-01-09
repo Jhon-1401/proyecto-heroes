@@ -42,6 +42,7 @@ export class FormularioReactivosComponent implements OnInit,OnDestroy {
     this.formGroup = this.formBuilder.group({
       nombre:['', Validators.required],
       apellido:['', [Validators.required, Validators.minLength(5)]],
+      paises: [-1, Validators.required],
       correo:['',Validators.pattern('[a-z0-9]+@[a-z0-9]+\.[a-z]{2,4}$')],
       contrasena:['',[Validators.required,this.validarContraseña]]
     });
